@@ -11,7 +11,7 @@ modules = ["do_omp"]
 
 incdir = [get_python_inc(plat_specific=1), numpy.get_include(), "pyPG/include/RNG"]
 libdir = ['/usr/local/lib']
-os.environ["CC"]  = "/usr/local/bin/gcc"
+os.environ["CC"]  = "/usr/bin/gcc"
 
 extra_compile_args = []
 USE_OPENMP = True
