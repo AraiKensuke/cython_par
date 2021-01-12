@@ -16,6 +16,8 @@ os.environ["CC"]  = "/usr/bin/gcc"
 extra_compile_args = []
 USE_OPENMP = True
 extra_compile_args.extend(["-fopenmp", "-DUSE_OPEN_MP"])
+extra_link_args    = ["-lgomp"]
+
 
 cmdclass = {'build_ext' : build_ext}
 #  Output to be named _LogitWrapper.so
@@ -26,6 +28,7 @@ for module in modules:
                             #libraries = ['gsl', 'gslcblas'],
                             include_dirs=incdir,   #  include_dirs for Mac
                             extra_compile_args=extra_compile_args,
+                            extra_link_args=extra_link_args,
                             library_dirs=libdir)
 
     setup(

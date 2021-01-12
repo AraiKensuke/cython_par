@@ -1,6 +1,7 @@
 import numpy as _N
 from cython.parallel import prange
 
+cdef int omp_get_thread_num
 def doit(double[:, ::1] vin, double[:, ::1] vout, int rep, int TR, int N):
     cdef double* p_vin   = &vin[0, 0]
     cdef double* p_vout  = &vout[0, 0]
