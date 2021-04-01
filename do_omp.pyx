@@ -1,11 +1,15 @@
 import numpy as _N
-from cython.parallel import prange
+from cython.parallel import prange, parallel
+cimport openmp
+from libc.stdio cimport printf
 
-cdef int omp_get_thread_num
+#cython: boundscheck=False, wraparound=False, nonecheck=False
+
 def doit(double[:, ::1] vin, double[:, ::1] vout, int rep, int TR, int N):
     cdef double* p_vin   = &vin[0, 0]
     cdef double* p_vout  = &vout[0, 0]
     cdef int tr, i, r
+    cdef int nthreads
 
     for r in range(rep):
         for tr in prange(TR, nogil=True):
