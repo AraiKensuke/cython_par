@@ -7,7 +7,7 @@ from distutils.extension import Extension
 #from Cython.Build import cythonize      # cythonize compiles a pyx
 from Cython.Distutils import build_ext   # Extension for a c-file, build_ext for cython file
 
-modules = ["do_omp"]
+modules = ["do_omp_basic"]
 
 incdir = [get_python_inc(plat_specific=1), numpy.get_include(), "pyPG/include/RNG"]
 libdir = ['/usr/local/lib']
